@@ -1,6 +1,4 @@
-web_larrys
-==========
-
+== About ==
 Server component of android_phonegap_larrys to provide sandwich data
 
 == Install ==
