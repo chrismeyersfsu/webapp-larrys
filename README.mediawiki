@@ -1,4 +1,4 @@
-== About ==
+== Overview ==
 Server component of android_phonegap_larrys to provide sandwich data   
 Data provided includes:   
 * meats 
@@ -8,12 +8,28 @@ Data provided includes:
 * prices
 == Dependencies ==
 
-* perl
-* web server (capable of serving perl)
-* sqlite3
-== Install ==    
+<ul>
+<li>perl, DBI, HTTP::Server::Simple <br />
+<pre>sudo cpan install "DBI"
+sudo cpan install "HTTP::Server::Simple"
+</pre>
+</li>
+<li>sqlite3 <br />
+<pre>sudo apt-get install sqlite3</pre>
+</li>
+</ul>
 
-# Setup the backing database schema and fill with sample data.
-#;<pre>./init.sh</pre>      
-# Place the .pl files in a folder that is accessible to the web and supports perl scripts.
-# Edit the android_phonegap_larrys requesting web url
+=== Optional ===
+
+* Web server supporting perl
+
+== Setup and Run ==    
+<ol>
+<li>Setup the backing database schema and fill with sample data.<br />
+<pre>./init.sh</pre>
+</li>
+<li>Start serving<br />
+<pre>./server.pl</pre>
+</li>
+<li>Point the android_phonegap_larrys requesting web url to your server.</li>
+</ol>
