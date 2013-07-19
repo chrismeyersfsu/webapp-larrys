@@ -32,6 +32,42 @@ sudo cpan install "DBD::SQLite"
 <li>Start serving<br />
 <pre>./server.pl</pre>
 </li>
-<li>Test by going to http://localhost:8080/items.pl</li>
+<li>Test by going to http://localhost:8080/items.pl?cat=sandwich</li>
 <li>Point the android_phonegap_larrys requesting web url to your server.</li>
 </ol>
+
+== Items API ==
+items.pl handles CGI get request and returns JSON.
+=== By Category ===
+Get items by category
+<pre>
+/items.pl?cat=<category>
+</pre>
+http://localhost:8080/items.pl?cat=sandwich
+<pre>
+([
+    {
+        "cat_name": "sandwich",
+        "item_price": 11.49,
+        "item_desc": "Lettuce, tomato, onions, black olives, bell peppers, pickles & cheese",
+        "item_name": "VEGGIE SUB",
+        "item_id": "33"
+    },
+    {
+        "cat_name": "sandwich",
+        "item_price": 11.97,
+        "item_desc": "Provolone, swiss & American cheeses",
+        "item_name": "CHEESE SUB",
+        "item_id": "32"
+    },
+    {
+        "cat_name": "sandwich",
+        "item_price": 11.6,
+        "item_desc": "A vegetarianâ€™s dream. Fresh grated parmesan cheese, and our own Larryâ€™s marinara sauce topped with melted provolone cheese and oregano",
+        "item_name": "EGGPLANT PARMESAN",
+        "item_id": "21"
+    }
+])
+</pre>
+
+
