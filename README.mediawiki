@@ -12,6 +12,7 @@ Data provided includes:
 <li>perl, DBI, HTTP::Server::Simple <br />
 <pre>sudo cpan install "DBI"
 sudo cpan install "HTTP::Server::Simple"
+sudo cpan install "DBD::SQLite"
 </pre>
 </li>
 <li>sqlite3 <br />
@@ -31,5 +32,6 @@ sudo cpan install "HTTP::Server::Simple"
 <li>Start serving<br />
 <pre>./server.pl</pre>
 </li>
+<li>Test by going to http://localhost:8080/items.pl</li>
 <li>Point the android_phonegap_larrys requesting web url to your server.</li>
 </ol>
