@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+
+# ?cat=sandwich
+# ?type=sandwich_types
 use CGI;
 use CGI::Carp qw(warningsToBrowser fatalsToBrowser); 
 use CGI qw(:standard);
@@ -35,14 +38,14 @@ if (defined($catParam)) {
 	$subsRef = $dbh->selectall_hashref("SELECT CAT2.cat_id,CAT2.cat_name,CAT2.cat_desc FROM category AS CAT1,category as CAT2, Type WHERE CAT1.cat_name='$typeParam' AND CAT1.cat_id=Type.cat_id_x AND Type.cat_id_y=CAT2.cat_id", "cat_id");
 } elsif (defined($calcGroupPriceParam)) {
 # possible sql injection, make sure item list are numbers
-	my @itemlist = split(/,/, $calcGroupPriceParam;
-	my @subList = filterItemsByCategory(@itemlist, 'sandwich');
+	my @itemlist = split(/,/, $calcGroupPriceParam);
+	my @sublist = filterItemsByCategory(@itemlist, 'sandwich');
 	if (scalar(@sublist) > 1) {
 		print "Error: should only have 1 sub in the group\n";
 		exit;
 	}
-	
 }
+
 while (my($k,$v) = each %$subsRef ) {
 	push(@subsArray, $v);
 }
@@ -71,6 +74,6 @@ sub filterItemsByCategory {
 		$item = 'item_id='.$item;
 	}
 	my $orStr = join(' OR ', @itemlist);
-	my @results = $db->selectrow_array("SELECT item_id FROM ItemCat WHERE cat_id='$cat_id' AND ($orStr)");
+	my @results = $dbh->selectrow_array("SELECT item_id FROM ItemCat WHERE cat_id='$cat_id' AND ($orStr)");
 	return @results;
 }
