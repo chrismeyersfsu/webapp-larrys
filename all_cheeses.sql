@@ -1,0 +1,14 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+INSERT INTO "category" VALUES(NULL,'cheese','additives');
+INSERT INTO "item" VALUES(NULL,'provolone','good cheese',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+INSERT INTO "item" VALUES(NULL,'swiss','holes in it',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+INSERT INTO "item" VALUES(NULL,'munster','like the munsters',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+INSERT INTO "item" VALUES(NULL,'monterey jack','pirate cheese',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+INSERT INTO "item" VALUES(NULL,'american','U S AAA',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+COMMIT;

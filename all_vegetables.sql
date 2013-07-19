@@ -1,0 +1,12 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+INSERT INTO "category" VALUES(NULL,'vegetable','they are good for you');
+INSERT INTO "item" VALUES(NULL,'tomato','images/tomato.png',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+INSERT INTO "item" VALUES(NULL,'lettuce','images/lettuce.png',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+INSERT INTO "item" VALUES(NULL,'onion','images/onion.png',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+INSERT INTO "item" VALUES(NULL,'pickle','images/pickle.gif',0.0);
+INSERT INTO "ItemCat" VALUES((SELECT max(item_id) FROM item), (SELECT max(cat_id) FROM category));
+COMMIT;
