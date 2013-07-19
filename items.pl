@@ -14,7 +14,7 @@ use JSON::XS;
 my $json = JSON::XS->new();
 $json->pretty(1);
 
-print "Content-type: text/html\n\n";
+print "Content-type: application/json\n\n";
 
 my $dbargs = {AutoCommit => 0,
                   PrintError => 1};

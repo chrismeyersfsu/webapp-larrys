@@ -15,7 +15,7 @@ sub handle_request {
 	my $path = $rootdir . $cgi->path_info();
 
 	if (-e $path) {
-		print "HTTP/1.0 200 OK\r\n";
+		print "HTTP/1.1 200 OK\r\n";
 		my @output = qx/$path/;
 		print @output;
 	} else {
