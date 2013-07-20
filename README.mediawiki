@@ -9,10 +9,8 @@ Data provided includes:
 == Dependencies ==
 
 <ul>
-<li>perl, DBI, HTTP::Server::Simple <br />
-<pre>sudo cpan install "DBI"
-sudo cpan install "HTTP::Server::Simple"
-sudo cpan install "DBD::SQLite"
+<li>perl, DBI, HTTP::Server::Simple, DBD::SQLite <br />
+<pre>sudo cpan install "DBI" "HTTP::Server::Simple" "DBD::SQLite"
 </pre>
 </li>
 <li>sqlite3 <br />
